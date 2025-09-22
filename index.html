@@ -316,20 +316,17 @@ function getSize(height, weight){
   return "غير متوفر";
 }
 
-// إضافة قطعة جديدة
 function addPiece() {
   pieceCount++;
   const container = document.getElementById("piecesContainer");
   const div = document.createElement("div");
   div.className = "piece";
 
-  // خيارات الطول: من 80 سم إلى 150 سم تقريباً
   const heightOptions = Array.from({length:71}, (_, i) => `<option value="${80+i}">${80+i} سم</option>`).join('');
-  
-  // خيارات الوزن: من 9 كغ إلى 35 كغ
   const weightOptions = Array.from({length:27}, (_, i) => `<option value="${9+i}">${9+i} كغ</option>`).join('');
+  
   div.innerHTML=`
-    <label>🧩 اختر المودال:</label>
+    <label>🧩 أضف الى السلة 🛒:</label>
     <select name="modal${pieceCount}" onchange="showModalImage(this,${pieceCount}); updatePrice();" required>
       <option value="">-- اختر مودال --</option>
       <option value="1">مودال رقم 1</option>
@@ -361,11 +358,19 @@ function addPiece() {
 
     <label>📐 المقاس:</label>
     <input type="text" name="size${pieceCount}" id="size${pieceCount}" readonly>
+
+    <button type="button" onclick="removePiece(this)" style="margin-top:10px; background:#ef4444;">🗑️ إلغاء الطلب</button>
   `;
   container.appendChild(div);
   updatePrice();
 }
 
+// دالة إزالة قطعة
+function removePiece(button){
+  const pieceDiv = button.closest(".piece");
+  pieceDiv.remove();
+  updatePrice();
+}
 // تحديث المقاس
 function updateSize(select,id){
   const piece=document.querySelector(`.piece:nth-child(${id})`);
