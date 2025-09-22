@@ -169,8 +169,15 @@
   <label>👤 الاسم الكامل:</label>
   <input type="text" name="name" required>
 
-  <label>📦 رقم الهاتف:</label>
-  <input type="tel" name="phone" pattern="^[0-9]{10}$" maxlength="10" placeholder="أدخل رقم الهاتف" required oninvalid="this.setCustomValidity('الرجاء إدخال رقم هاتف صحيح مكون من 10 أرقام')" oninput="this.setCustomValidity('')">
+  <label for="phone">📞 رقم الهاتف:</label>
+    <input type="tel" id="phone" name="phone" 
+       dir="rtl"
+       placeholder="أدخل رقم الهاتف"
+       pattern="^[0-9]{10}$"
+       maxlength="10"
+       required
+       oninvalid="this.setCustomValidity('الرجاء إدخال رقم هاتف صحيح مكون من 10 أرقام')"
+       oninput="this.setCustomValidity('')">
 
   <label>📍 الولاية:</label>
   <select id="wilaya" name="wilaya" required></select>
