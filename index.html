@@ -159,12 +159,55 @@
 </header>
 
 <div class="slideshow" aria-hidden="false">
-  <img class="slide active" src="images/modal1.jpg" alt="مودال 1">
-  <img class="slide" src="images/modal2.jpg" alt="مودال 2">
-  <img class="slide" src="images/modal3.jpg" alt="مودال 3">
-  <img class="slide" src="images/modal4.jpg" alt="مودال 4">
-  <img class="slide" src="images/modal5.jpg" alt="مودال 5">
+  <div class="slide active">
+    <img src="images/modal1.jpg" alt="مودال 1">
+    <div class="modal-price">💰 السعر: 3000 دج</div>
+  </div>
+  <div class="slide">
+    <img src="images/modal2.jpg" alt="مودال 2">
+    <div class="modal-price">💰 السعر: 3000 دج</div>
+  </div>
+  <div class="slide">
+    <img src="images/modal3.jpg" alt="مودال 3">
+    <div class="modal-price">💰 السعر: 4000 دج</div>
+  </div>
+  <div class="slide">
+    <img src="images/modal4.jpg" alt="مودال 4">
+    <div class="modal-price">💰 السعر: 3500 دج</div>
+  </div>
+  <div class="slide">
+    <img src="images/modal5.jpg" alt="مودال 5">
+    <div class="modal-price">💰 السعر: 4000 دج</div>
+  </div>
 </div>
+
+<style>
+.slideshow .slide {
+  display:none;
+  text-align:center;
+  border-radius:14px;
+  background:#fff;
+  padding:10px;
+}
+.slideshow .slide.active { display:block; animation: fade 0.9s ease-in-out; }
+
+.slideshow .slide img {
+  max-width: 90%;   /* الحد الأقصى للعرض */
+  max-height: 350px; /* الحد الأقصى للارتفاع */
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover; /* يحافظ على نسبة الصورة */
+}
+
+.modal-price {
+  margin-top:8px;
+  font-weight:bold;
+  color:#118a3b;
+  font-size:18px;
+}
+</style>
+</style>
 
 <h2>🛒  إملأ الاستمارة واطلب احسن الموديلات</h2>
 
