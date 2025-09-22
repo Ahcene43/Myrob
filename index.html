@@ -423,7 +423,7 @@ document.getElementById("orderForm").addEventListener("submit",function(e){
   fetch(SCRIPT_URL,{method:"POST",body:formData})
     .then(res=>res.text())
     .then(data=>{
-      document.getdocument.getElementById("loading").style.display="none";
+      document.getElementById("loading").style.display="none";
       showModal(updatePrice());
       form.reset();
       document.getElementById("piecesContainer").innerHTML="";
