@@ -348,14 +348,12 @@ let pieceCount=0;
 const UNIT_PRICE=3000;
 
 // دالة تحديد المقاس حسب الطول والوزن
-function getSize(height, weight){
-  if(height>=80 && height<=90 && weight>=9 && weight<=12) return "S1";
-  if(height>=91 && height<=100 && weight>=13 && weight<=16) return "S2";
-  if(height>=101 && height<=120 && weight>=17 && weight<=19) return "S3";
-  if(height>=121 && height<=130 && weight>=20 && weight<=23) return "S4";
-  if(height>=131 && height<=140 && weight>=24 && weight<=27) return "M1";
-  if(height>=141 && height<=150 && weight>=28 && weight<=30) return "M2";
-  if(height>=151 && height<=160 && weight>=31 && weight<=35) return "M2";
+function getSize(height){
+  if(height>=6 && height<=7 ) return "S1";
+  if(height>=8 && height<=9) return "S2";
+  if(height>=10 && height<=11) return "S3";
+  if(height>=12 && height<=13 ) return "S4";
+ 
   return "غير متوفر";
 }
 
@@ -365,8 +363,8 @@ function addPiece() {
   const div = document.createElement("div");
   div.className = "piece";
 
-  const heightOptions = Array.from({length:71}, (_, i) => `<option value="${80+i}">${80+i} سم</option>`).join('');
-  const weightOptions = Array.from({length:27}, (_, i) => `<option value="${9+i}">${9+i} كغ</option>`).join('');
+  const heightOptions = Array.from({length:9}, (_, i) => `<option value="${6+i}">${6+i}  سنوات </option>`).join('');
+  const weightOptions = Array.from({length:100}, (_, i) => `<option value="${1+i}">${1+i} كغ</option>`).join('');
   
   div.innerHTML=`
     <label>🧩 أضف الى السلة 🛒:</label>
@@ -393,12 +391,10 @@ function addPiece() {
       <option value="أخضر">أخضر</option>
     </select>
 
-    <label>📏 طول الطفل:</label>
+    <label>📏 عمر الطفل:</label>
     <select name="height${pieceCount}" onchange="updateSize(this,${pieceCount})" required>${heightOptions}</select>
 
-    <label>⚖️ وزن الطفل:</label>
-    <select name="weight${pieceCount}" onchange="updateSize(this,${pieceCount})" required>${weightOptions}</select>
-
+   
     <label>📐 المقاس:</label>
     <input type="text" name="size${pieceCount}" id="size${pieceCount}" readonly>
 
@@ -418,8 +414,8 @@ function removePiece(button){
 function updateSize(select,id){
   const piece=document.querySelector(`.piece:nth-child(${id})`);
   const height=parseInt(piece.querySelector(`select[name^="height"]`).value);
-  const weight=parseInt(piece.querySelector(`select[name^="weight"]`).value);
-  if(height && weight) document.getElementById(`size${id}`).value=getSize(height,weight);
+  
+  if(height) document.getElementById(`size${id}`).value=getSize(height);
 }
 
 // عرض صورة المودال
